@@ -37,7 +37,7 @@ sys_call:
 	bx	lr
 
 .global	sys_call_add
-sys_call:
+sys_call_add:
 	svc	#0
 	bx	lr
 
@@ -45,4 +45,5 @@ sys_call:
 .global svc_handler
 svc_handler:
 	mov	r0,	lr
+	mrs	r1,	msp
 	b	svc_handler_c
